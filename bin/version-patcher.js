@@ -68,14 +68,18 @@ printMessage(["VERSION PATCHER"]);
 try {
   config = fs.readFileSync(confName, "utf8");
 } catch (e) {
-  printMessage([`Can\`t read config file: ${confName}`, '', 'See https://github.com/id141365154/version-patcher#readme for reference']);
+  printMessage([`Can\`t read config file: ${confName}`, '', 'See https://github.com/id141365154/version-patcher#readme for reference'], {
+    borderColor: "red"
+  });
   throw e;
 }
 
 try {
   config = JSON.parse(config);
 } catch (e) {
-  printMessage([`Can\`t parse config file: ${confName}`]);
+  printMessage([`Can\`t parse config file: ${confName}`], {
+    borderColor: "red"
+  });
   throw e;
 }
 
