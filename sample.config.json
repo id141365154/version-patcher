@@ -1,0 +1,20 @@
+{
+	"patch": [
+	{
+		"file": "app.json",
+		"params": [
+		{
+			"version": "semantic"
+		}
+		{
+			"versionCode": "incriment"
+		}]
+	},
+	{
+		"file": "package.json",
+		"params": [
+		{
+			"version": "semantic"
+		}]
+	}, ],
+}
