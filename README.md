@@ -10,27 +10,27 @@
 
 ```json
 {
-	"patch": [
-		{
-			"file": "app.json",
-			"params": [
-				{
-					"version": "semantic"
-				}
-				{
-					"versionCode": "incriment"
-				}
-			]
-		},
-		{
-			"file": "package.json",
-			"params": [
-				{
-					"version": "semantic"
-				}
-			]
-		},
-	],
+  "patch": [
+    {
+      "file": "app.json",
+      "params": [
+        {
+          "expo.version": "semantic"
+        },
+        {
+          "expo.android.versionCode": "incriment"
+        }
+      ]
+    },
+    {
+      "file": "package-example.json",
+      "params": [
+        {
+          "version": "semantic"
+        }
+      ]
+    }
+  ]
 }
 ```
 
