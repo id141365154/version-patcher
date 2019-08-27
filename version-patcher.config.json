@@ -5,7 +5,7 @@
 		"params": [
 		{
 			"expo.version": "semantic"
-		}
+		},
 		{
 			"expo.android.versionCode": "incriment"
 		}]
@@ -16,5 +16,5 @@
 		{
 			"version": "semantic"
 		}]
-	}, ],
+	}]
 }

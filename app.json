@@ -42,6 +42,6 @@
 			"backgroundColor": "#8014AC",
 			"image": "./assets/splash.png",
 			"resizeMode": "cover"
-		},
+		}
 	}
 }

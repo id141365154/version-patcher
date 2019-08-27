@@ -18,9 +18,23 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-const baseFile = "base.txt";
-const tempFile = "temp.txt";
-const confName = "api-check.config.json";
+
+
+const getByPath = (object, path) => {
+  const steps = path.split('.')
+
+  if (steps.length === 1) {
+    return object[steps]
+  }
+  if (steps.length > 1) {
+
+    const newObj = object[steps[0]]
+    steps.shift()
+    return getByPath(newObj, steps.join('.'))
+  }
+}
+
+const confName = "version-patcher.config.json";
 let config = "";
 
 try {
@@ -37,193 +51,18 @@ try {
   throw e;
 }
 
-printMessage(["API CHANGES"]);
+printMessage(["VERSION PATCHER"]);
 
-const makeFilename = url => {
-  return url
-    .replace(/(http?s:\/\/)/g, "")
-    .replace(/(www\.)/g, "")
-    .replace(/\W/g, "_");
-};
+config.patch.map(item => {
+  const patchedFile = fs.readFileSync(item.file, 'utf8')
 
-Promise.all(
-  config.urls.map(
-    url =>
-      new Promise((resolve, reject) => {
-        https
-          .get(url, resp => {
-            let data = "";
+  let fileObject = JSON.parse(patchedFile)
 
-            // A chunk of data has been recieved.
-            resp.on("data", chunk => {
-              data += chunk;
-            });
-
-            // The whole response has been received. Print out the result.
-            resp.on("end", () => {
-              console.log("\x1b[32m", "Fetch: " + url);
-              let parsedData = data;
-              try {
-                data = JSON.parse(data);
-                parsedData = JSON.stringify(data, null, 4);
-              } catch (e) {}
-
-              saveFile(
-                config.tmpPath + makeFilename(url) + "_" + tempFile,
-                parsedData,
-                function(err) {
-                  if (err) {
-                    resolve({
-                      error: "NetworkError"
-                    });
-                    return console.log(err);
-                  }
-                  console.log("", "Done");
-                  if (
-                    !fs.existsSync(
-                      config.tmpPath + makeFilename(url) + "_" + baseFile
-                    )
-                  ) {
-                    console.log("", "Local data does not exist, make it");
-                    saveFile(
-                      config.tmpPath + makeFilename(url) + "_" + baseFile,
-                      parsedData,
-                      function(err) {
-                        if (err) {
-                          return console.log(err);
-                        }
-
-                        checkDiff(resolve, url);
-                      }
-                    );
-                  } else {
-                    checkDiff(resolve, url);
-                  }
-                }
-              );
-            });
-          })
-          .on("error", err => {
-            resolve({
-              error: "NetworkError"
-            });
-            printMessage(
-              ["Can`t resolve remote data", url, "API check bypassed"],
-              {
-                borderColor: "red"
-              }
-            );
-            process.exit();
-          });
-      })
-  )
-)
-  .then(results => {
-    let hasDiff = false;
-
-    results.map(res => {
-      if (!res.proceed) {
-        hasDiff = true;
-        printMessage([res.url]);
-        showChangesAlert(res.diff);
-      }
-    });
-
-    if (hasDiff) {
-      printMessage(
-        ["Please, confirm that you are read this message, and we will proceed"],
-        {
-          borderColor: "red"
-        }
-      );
-      rl.question("[y/n] ", answer => {
-        if (answer.match(/^y(es)?$/i)) {
-          results.map(res => updateBaseFile(res.url));
-        } else {
-          const err = new Error(
-            "Aborted. Please read API changes and confirm it next time"
-          );
-          throw err;
-        }
-
-        rl.close();
-      });
-    } else {
-      printMessage(["You are using actual API"], {
-        borderColor: "green"
-      });
-      process.exit();
-    }
+  item.params.map(param => {
+    let version = getByPath(fileObject, Object.keys(param)[0])
+    console.log(Object.keys(param)[0] + " version", version);
   })
-  .catch(console.log);
 
-function saveFile(path, content, callback) {
-  if (!fs.existsSync(config.tmpPath)) {
-    fs.mkdirSync(config.tmpPath);
-  }
-  return fs.writeFile(path, content, "utf8", callback);
-}
 
-function updateBaseFile(url) {
-  const tmpData = fs.readFileSync(
-    config.tmpPath + makeFilename(url) + "_" + tempFile,
-    "utf8"
-  );
-  saveFile(
-    config.tmpPath + makeFilename(url) + "_" + baseFile,
-    tmpData,
-    function(err) {
-      if (err) {
-        return console.log(err);
-      }
-      console.log("\x1b[32m", url + " Updated!");
-      process.exit();
-    }
-  );
-}
-
-function checkDiff(resolve, url) {
-  child_process.exec(
-    "git diff  --no-index " +
-      config.tmpPath +
-      makeFilename(url) +
-      "_" +
-      baseFile +
-      " " +
-      config.tmpPath +
-      makeFilename(url) +
-      "_" +
-      tempFile,
-    function(error, stdout, stderr) {
-      if (stdout) {
-        resolve({
-          diff: stdout,
-          proceed: false,
-          url: url
-        });
-      } else {
-        resolve({
-          diff: "",
-          proceed: true,
-          url: url
-        });
-      }
-    }
-  );
-}
-
-function showChangesAlert(body) {
-  var arDiff = body.split("\n");
-  arDiff.forEach((str, i) => {
-    let color = "\x1b[37m";
-
-    if (str[0] === "-") {
-      color = "\x1b[31m";
-    }
-    if (str[0] === "+") {
-      color = "\x1b[32m";
-    }
-
-    console.log(color, str);
-  });
-}
+  //  console.log(fileObject)
+})
