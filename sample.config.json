@@ -4,14 +4,14 @@
 		"file": "app.json",
 		"params": [
 		{
-			"version": "semantic"
+			"expo.version": "semantic"
 		}
 		{
-			"versionCode": "incriment"
+			"expo.android.versionCode": "incriment"
 		}]
 	},
 	{
-		"file": "package.json",
+		"file": "package-example.json",
 		"params": [
 		{
 			"version": "semantic"

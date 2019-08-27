@@ -1,0 +1,137 @@
+{
+	"name": "test",
+	"version": "0.1.41",
+	"private": true,
+	"dependencies":
+	{
+		"@craco/craco": "^3.5.0",
+		"@types/axios": "^0.14.0",
+		"@types/i18next": "^8.4.4",
+		"@types/react-i18next": "^8.1.0",
+		"@types/redux-actions": "^2.6.0",
+		"axios": "^0.18.0",
+		"connected-react-router": "^6.3.1",
+		"history": "^4.7.2",
+		"i18next": "^11.6.0",
+		"i18next-xhr-backend": "^2.0.1",
+		"localforage": "^1.7.3",
+		"react": "^16.8.3",
+		"react-animated-number": "^0.4.4",
+		"react-cookies": "^0.1.0",
+		"react-dom": "^16.8.3",
+		"react-dropzone": "^10.1.7",
+		"react-i18next": "^10.9.0",
+		"react-redux": "^6.0.1",
+		"react-router": "^4.3.1",
+		"react-router-config": "^4.4.0-beta.6",
+		"react-router-dom": "^4.3.1",
+		"react-scripts": "2.1.5",
+		"react-select": "^2.4.1",
+		"react-text-mask": "^5.4.3",
+		"react-youtube": "^7.9.0",
+		"redux": "^4.0.1",
+		"redux-actions": "^2.6.5",
+		"redux-form": "^8.1.0",
+		"redux-form-input-masks": "^2.0.1",
+		"redux-persist": "^5.10.0",
+		"redux-saga": "^0.16.2",
+		"reselect": "^4.0.0",
+		"styled-components": "^4.1.3"
+	},
+	"scripts":
+	{
+		"start": "cross-env REACT_APP_DEBUG=LOCAL REACT_APP_VERSION=$npm_package_version craco start",
+		"build:debug": "cross-env REACT_APP_DEBUG=DEVELOPMENT REACT_APP_VERSION=$npm_package_version craco build",
+		"build": "cross-env REACT_APP_DEBUG=PRODUCTION REACT_APP_VERSION=$npm_package_version craco build",
+		"postbuild": "rimraf build/**/*.map",
+		"test": "craco test",
+		"eject": "craco eject",
+		"storybook": "start-storybook -p 9009 -s public",
+		"build-storybook": "build-storybook -s public"
+	},
+	"eslintConfig":
+	{
+		"extends": "react-app"
+	},
+	"browserslist": [
+		">0.2%",
+		"not dead",
+		"not ie <= 11",
+		"not op_mini all"
+	],
+	"devDependencies":
+	{
+		"@commitlint/cli": "^8.0.0",
+		"@dump247/storybook-state": "^1.5.2",
+		"@storybook/addon-actions": "^4.1.13",
+		"@storybook/addon-info": "^4.1.13",
+		"@storybook/addon-knobs": "^4.1.13",
+		"@storybook/addon-links": "^4.1.13",
+		"@storybook/addon-viewport": "^4.1.13",
+		"@storybook/addons": "^4.1.13",
+		"@storybook/react": "^4.1.13",
+		"@types/react": "^16.8.5",
+		"@types/react-dom": "^16.8.2",
+		"@types/react-redux": "^7.0.1",
+		"@types/react-router-config": "^1.1.2",
+		"@types/react-router-dom": "^4.3.1",
+		"@types/react-select": "^2.0.14",
+		"@types/react-text-mask": "^5.4.4",
+		"@types/react-youtube": "^7.6.1",
+		"@types/redux-form": "^8.1.0",
+		"@types/storybook__addon-actions": "^3.4.2",
+		"@types/storybook__addon-info": "^4.1.0",
+		"@types/storybook__addon-knobs": "^4.0.1",
+		"@types/storybook__addon-links": "^3.3.4",
+		"@types/storybook__react": "^4.0.1",
+		"@types/styled-components": "^4.1.11",
+		"awesome-typescript-loader": "^5.2.1",
+		"commitizen": "^3.1.1",
+		"cross-env": "^5.2.0",
+		"cz-customizable": "^6.2.0",
+		"husky": "^2.7.0",
+		"lint-staged": "^8.1.4",
+		"prettier": "^1.16.4",
+		"react-docgen-typescript-loader": "^3.0.1",
+		"tslint": "^5.13.0",
+		"tslint-config-prettier": "^1.18.0",
+		"tslint-plugin-prettier": "^2.0.1",
+		"tslint-react": "^3.6.0",
+		"typesafe-actions": "^3.2.1",
+		"typescript": "3.2.4",
+		"url-loader": "^1.1.2"
+	},
+	"lint-staged":
+	{
+		"src/**/*.{ts,tsx,js,jsx,json,css}": [
+			"prettier --write --no-semi --single-quote --trailing-comma=es5 --print-width=120",
+			"git add"
+		]
+	},
+	"config":
+	{
+		"commitizen":
+		{
+			"path": "node_modules/cz-customizable",
+			"maxHeaderWidth": 100,
+			"maxLineWidth": 100,
+			"defaultType": "",
+			"defaultScope": "",
+			"defaultSubject": "",
+			"defaultBody": "",
+			"defaultIssues": ""
+		},
+		"cz-customizable":
+		{
+			"config": "commitizen.js"
+		}
+	},
+	"husky":
+	{
+		"hooks":
+		{
+			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS -g './commitlint.js'"
+		}
+	},
+
+}
