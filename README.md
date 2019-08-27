@@ -8,41 +8,37 @@
 
 В корне проекта создайте `version-patcher.config.json`
 
-`JSON
+```json
 {
 	"patch": [
-	{
-		"file": "app.json",
-		"params": [
 		{
-			"version": "semantic"
-		}
+			"file": "app.json",
+			"params": [
+				{
+					"version": "semantic"
+				}
+				{
+					"versionCode": "incriment"
+				}
+			]
+		},
 		{
-			"versionCode": "incriment"
-		}]
-	},
-	{
-		"file": "package.json",
-		"params": [
-		{
-			"version": "semantic"
-		}]
-	}, ],
+			"file": "package.json",
+			"params": [
+				{
+					"version": "semantic"
+				}
+			]
+		},
+	],
 }
-`
-
-
+```
 
 ### Типы версий
 
-`semantic` - 0.0.1 
-Поддерживает команды `patch` `minor` `major`
+`semantic` - `0.0.1` - Поддерживает команды: `patch` | `minor` | `major`
 
-`incriment` - 1 
-Увеличение версии на 1
-
-
-
+`incriment` - `1` - Увеличение версии на 1
 
 ### Подключение
 
