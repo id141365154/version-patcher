@@ -59,9 +59,10 @@ const updateVersion = (version, versionType) => {
   return versions.join('.')
 }
 
-const confName = "version-patcher.config.json";
-let config = "";
+const confName = "version-patcher.config.json"
+let config = ""
 const versionType = process.argv[process.argv.length - 1]
+const allowArguments = ['patch', 'minor', 'major']
 
 printMessage(["VERSION PATCHER"]);
 
@@ -78,6 +79,14 @@ try {
   config = JSON.parse(config);
 } catch (e) {
   printMessage([`Can\`t parse config file: ${confName}`], {
+    borderColor: "red"
+  });
+  throw e;
+}
+
+
+if (allowArguments.indexOf(versionType) === -1) {
+  printMessage([`Version type not passed as argument`, '', 'Allow types: ' + allowArguments.join(' | ')], {
     borderColor: "red"
   });
   throw e;
