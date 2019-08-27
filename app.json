@@ -1,47 +1,45 @@
 {
-	"expo":
-	{
-		"name": "TEST",
-		"description": "TEST TEST",
-		"slug": "test_mobile",
-		"privacy": "unlisted",
-		"sdkVersion": "34.0.0",
-		"platforms": ["ios", "android"],
-		"version": "1.2.0",
-		"orientation": "portrait",
-		"primaryColor": "#8014AC",
-		"icon": "./assets/icon.png",
-		"updates":
-		{
-			"enabled": true,
-			"checkAutomatically": "ON_LOAD",
-			"fallbackToCacheTimeout": 30000
-		},
-		"assetBundlePatterns": ["**/*"],
-		"androidStatusBar":
-		{
-			"barStyle": "light-content"
-		},
-		"ios":
-		{
-			"supportsTablet": false,
-			"bundleIdentifier": "ru.mes.dnevnik"
-		},
-		"android":
-		{
-			"versionCode": 6,
-			"package": "ru.mes.dnevnik",
-			"adaptiveIcon":
-			{
-				"backgroundColor": "#8014AC",
-				"backgroundImage": "./assets/icon.png"
-			}
-		},
-		"splash":
-		{
-			"backgroundColor": "#8014AC",
-			"image": "./assets/splash.png",
-			"resizeMode": "cover"
-		}
-	}
+  "expo": {
+    "name": "TEST",
+    "description": "TEST TEST",
+    "slug": "test_mobile",
+    "privacy": "unlisted",
+    "sdkVersion": "34.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "version": "16.0.0",
+    "orientation": "portrait",
+    "primaryColor": "#8014AC",
+    "icon": "./assets/icon.png",
+    "updates": {
+      "enabled": true,
+      "checkAutomatically": "ON_LOAD",
+      "fallbackToCacheTimeout": 30000
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "androidStatusBar": {
+      "barStyle": "light-content"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "ru.mes.dnevnik"
+    },
+    "android": {
+      "versionCode": 28,
+      "package": "ru.mes.dnevnik",
+      "adaptiveIcon": {
+        "backgroundColor": "#8014AC",
+        "backgroundImage": "./assets/icon.png"
+      }
+    },
+    "splash": {
+      "backgroundColor": "#8014AC",
+      "image": "./assets/splash.png",
+      "resizeMode": "cover"
+    }
+  }
 }
