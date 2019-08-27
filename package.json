@@ -1,6 +1,6 @@
 {
   "name": "version-patcher",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Allow to update version in several json files",
   "files": [
     "bin",
@@ -22,7 +22,7 @@
   "author": "Victor Kulyabin <id141365154@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "print-message": "^2.1.0"
+    "print-message": "^2.1.0",
   },
   "devDependencies": {}
 }
