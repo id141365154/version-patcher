@@ -8,7 +8,7 @@
 
 В корне проекта создайте `version-patcher.config.json`
 
-`
+`JSON
 {
 	"patch": [
 	{
