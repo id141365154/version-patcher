@@ -14,13 +14,17 @@ Platform:
   linux x64
 
 Trace: 
-  SyntaxError: /mnt/c/projects/version-patcher/package.json: Unexpected token } in JSON at position 555
-      at JSON.parse (<anonymous>)
-      at /mnt/c/Program Files (x86)/Yarn/lib/cli.js:1625:59
-      at Generator.next (<anonymous>)
-      at step (/mnt/c/Program Files (x86)/Yarn/lib/cli.js:304:30)
-      at /mnt/c/Program Files (x86)/Yarn/lib/cli.js:315:13
-      at <anonymous>
+  Error: canceled
+      at Interface.<anonymous> (/mnt/c/Program Files (x86)/Yarn/lib/cli.js:125801:13)
+      at emitNone (events.js:106:13)
+      at Interface.emit (events.js:208:7)
+      at Interface._ttyWrite (readline.js:775:16)
+      at ReadStream.onkeypress (readline.js:160:10)
+      at emitTwo (events.js:126:13)
+      at ReadStream.emit (events.js:214:7)
+      at emitKeys (internal/readline.js:420:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (readline.js:1011:36)
 
 npm manifest: 
   {
@@ -47,7 +51,7 @@ npm manifest:
     "author": "Victor Kulyabin <id141365154@gmail.com>",
     "license": "ISC",
     "dependencies": {
-      "print-message": "^2.1.0",
+      "print-message": "^2.1.0"
     },
     "devDependencies": {}
   }

@@ -1,4 +1,4 @@
-# Patch версий в нескольких файлах
+# Патч версий в нескольких файлах
 
 ## Установка
 
@@ -46,11 +46,11 @@
 
 До
 
-`"scripts": { "start": "react-scripts start", "build": "react-scripts build", ... },`
+`"scripts": { "build": "react-scripts build", ... },`
 
 После
 
-`"scripts": { "start": "node ./node_modules/.bin/version-patcher && react-scripts start", "build": "react-scripts build", ... },`
+`"scripts": { "build": "version-patcher patch && react-scripts build", ... },`
 
 ## Отладка
 
