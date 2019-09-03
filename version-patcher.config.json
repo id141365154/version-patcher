@@ -1,0 +1,37 @@
+{
+  "patch": [
+    {
+      "file": "app.json",
+      "params": [
+        {
+          "path": "expo.version"
+        },
+        {
+          "path": "expo.android.versionCode"
+        }
+      ]
+    },
+    {
+      "file": "package-example.json",
+      "params": [
+        {
+          "path": "version"
+        }
+      ]
+    },
+    {
+      "file": "test.json",
+      "params": [
+        {
+          "path": "version",
+          "reference": {
+            "file": "app.json",
+            "params": {
+              "path": "expo.version"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

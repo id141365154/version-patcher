@@ -1,9 +1,8 @@
 {
   "name": "test",
-  "version": "11.0.0",
+  "version": "11.5.0",
   "private": true,
-  "dependencies":
-  {
+  "dependencies": {
     "@craco/craco": "^3.5.0",
     "@types/axios": " ^0.14.0",
     "@types/i18next": "^8.4.4",
@@ -38,8 +37,7 @@
     "reselect": "^4.0.0",
     "styled-components": "^4.1.3"
   },
-  "scripts":
-  {
+  "scripts": {
     "start": "cross-env REACT_APP_DEBUG=LOCAL REACT_APP_VERSION=$npm_package_version craco start",
     "build:debug": "cross-env REACT_APP_DEBUG=DEVELOPMENT REACT_APP_VERSION=$npm_package_version craco build",
     "build": "cross-env REACT_APP_DEBUG=PRODUCTION REACT_APP_VERSION=$npm_package_version craco build",
@@ -49,8 +47,7 @@
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
   },
-  "eslintConfig":
-  {
+  "eslintConfig": {
     "extends": "react-app"
   },
   "browserslist": [
@@ -59,8 +56,7 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "devDependencies":
-  {
+  "devDependencies": {
     "@commitlint/cli": "^8.0.0",
     "@dump247/storybook-state": "^1.5.2",
     "@storybook/addon-actions": "^4.1.13",
@@ -101,17 +97,14 @@
     "typescript": "3.2.4",
     "url-loader": "^1.1.2"
   },
-  "lint-staged":
-  {
+  "lint-staged": {
     "src/**/*.{ts,tsx,js,jsx,json,css}": [
       "prettier --write --no-semi --single-quote --trailing-comma=es5 --print-width=120",
       "git add"
     ]
   },
-  "config":
-  {
-    "commitizen":
-    {
+  "config": {
+    "commitizen": {
       "path": "node_modules/cz-customizable",
       "maxHeaderWidth": 100,
       "maxLineWidth": 100,
@@ -121,15 +114,12 @@
       "defaultBody": "",
       "defaultIssues": ""
     },
-    "cz-customizable":
-    {
+    "cz-customizable": {
       "config": "commitizen.js"
     }
   },
-  "husky":
-  {
-    "hooks":
-    {
+  "husky": {
+    "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS -g './commitlint.js'"
     }
   }

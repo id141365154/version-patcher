@@ -1,10 +1,10 @@
 {
   "name": "version-patcher",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Allow to update version in several json files",
   "files": [
     "bin",
-    "version-patcher.config.sample.json"
+    "version-patcher.config.json"
   ],
   "bin": {
     "version-patcher": "bin/version-patcher.js"

@@ -9,7 +9,7 @@
       "ios",
       "android"
     ],
-    "version": "16.0.0",
+    "version": "16.7.0",
     "orientation": "portrait",
     "primaryColor": "#8014AC",
     "icon": "./assets/icon.png",
@@ -29,7 +29,7 @@
       "bundleIdentifier": "ru.mes.dnevnik"
     },
     "android": {
-      "versionCode": 28,
+      "versionCode": 61,
       "package": "ru.mes.dnevnik",
       "adaptiveIcon": {
         "backgroundColor": "#8014AC",
