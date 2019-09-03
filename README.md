@@ -15,10 +15,10 @@
       "file": "app.json",
       "params": [
         {
-          "expo.version": "semantic"
+          "path": "expo.version"
         },
         {
-          "expo.android.versionCode": "incriment"
+          "path": "expo.android.versionCode"
         }
       ]
     },
@@ -26,7 +26,21 @@
       "file": "package-example.json",
       "params": [
         {
-          "version": "semantic"
+          "path": "version"
+        }
+      ]
+    },
+    {
+      "file": "test.json",
+      "params": [
+        {
+          "path": "version",
+          "reference": {
+            "file": "app.json",
+            "params": {
+              "path": "expo.version"
+            }
+          }
         }
       ]
     }
